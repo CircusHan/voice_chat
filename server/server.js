@@ -1,12 +1,18 @@
 const express = require('express');
 const http = require('http');
 const WebSocket = require('ws');
+const path = require('path');
 
 const app = express();
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
-app.use(express.static('public'));
+// Serve the static files from the repository's public directory regardless of
+// the current working directory. When the server is started from the `server`
+// folder as recommended in the README, using a relative path of `public` would
+// incorrectly look for `server/public`. Resolving the path relative to this
+// file ensures the correct directory is served.
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 wss.on('connection', function connection(ws) {
   ws.on('message', function incoming(message) {
