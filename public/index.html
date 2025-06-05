@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voice Chat with Avatars</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Voice Chat Room</h1>
+  <div id="avatars">
+    <div class="avatar" id="local">
+      <img src="https://via.placeholder.com/150" alt="Local Avatar">
+      <p>You</p>
+    </div>
+    <div class="avatar" id="remote">
+      <img src="https://via.placeholder.com/150" alt="Remote Avatar">
+      <p>Remote</p>
+    </div>
+  </div>
+  <script src="https://unpkg.com/simple-peer@latest/simplepeer.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
